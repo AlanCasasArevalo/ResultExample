@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Juego de tronos",
+    "number_of_seasons": 8,
+    "image_url": "https://image.tmdb.org/t/p/w500/qsD5OHqW7DSnaQ2afwz8Ptht1Xb.jpg"
+  },
+  {
+    "id": 2,
+    "name": "One-Punch Man",
+    "number_of_seasons": 3,
+    "image_url": "https://image.tmdb.org/t/p/w500/s0w8JbuNNxL1YgaHeDWih12C3jG.jpg"
+  },
+  {
+    "id": 3,
+    "name": "The Flash",
+    "number_of_seasons": 4,
+    "image_url": "https://image.tmdb.org/t/p/w500/jC1KqsFx8ZyqJyQa2Ohi7xgL7XC.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Fairy Tail",
+    "number_of_seasons": 8,
+    "image_url": "https://image.tmdb.org/t/p/w500/m2lugAG39sO0yCcuxEAu4fY5u1o.jpg"
+  }
+]
