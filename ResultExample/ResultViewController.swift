@@ -13,25 +13,34 @@ class ResultViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fetchResultFromAPI { results, error in
-            print(results!)
-            print(error?.localizedDescription)
+        self.fetchResultFromAPI { (res) in
+            switch res {
+            case .success(let courses):
+                courses.forEach({ (course) in
+                    print(course.self)
+                })
+            case .failure(let error):
+                print("Failed to fetch object", error)
+            }
         }
     }
 
-    func fetchResultFromAPI (completionHandler: @escaping ([TVResult]?, Error?) -> ()) {
+    func fetchResultFromAPI (completionHandler: @escaping (Result<[TVResult], Error>) -> ()) {
+        
+    
         guard let url = URL(string: urlString) else { return }
 
         URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
             if let error = error {
-                completionHandler(nil, error)
+                completionHandler(.failure(error))
                 return
             } else {
                 do {
-                    let results = try JSONDecoder().decode([TVResult].self, from: data!)
-                    completionHandler(results, nil)
+                    let tvResults = try JSONDecoder().decode([TVResult].self, from: data!)
+                    completionHandler(.success(tvResults))
                 }catch let jsonError {
-                    completionHandler(nil, jsonError)
+                    completionHandler(.failure(jsonError))
                 }
             }
 
